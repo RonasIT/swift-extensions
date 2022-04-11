@@ -13,7 +13,8 @@ let package = Package(
         .library(name: "CoreGraphics+Sugar", targets: ["CoreGraphics+Sugar"]),
     ],
     dependencies: [
-        .package(url: "https://github.com/malcommac/SwiftDate.git", .upToNextMajor(from: "6.3.1"))
+        .package(url: "https://github.com/malcommac/SwiftDate.git", .upToNextMajor(from: "6.3.1")),
+        .package(url: "https://github.com/RonasIT/swift-networking.git", .upToNextMajor(from: "2.0.0")),
     ],
     targets: [
         .target(name: "UIKit+Sugar", path: "Sources/UIKit+Sugar"),
