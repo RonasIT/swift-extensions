@@ -13,8 +13,7 @@ let package = Package(
         .library(name: "CoreGraphics+Sugar", targets: ["CoreGraphics+Sugar"]),
     ],
     dependencies: [
-        // Dependencies declare other packages that this package depends on.
-        // .package(url: /* package url */, from: "1.0.0"),
+        .package(url: "https://github.com/malcommac/SwiftDate.git", .upToNextMajor(from: "6.3.1"))
     ],
     targets: [
         .target(name: "UIKit+Sugar", path: "Sources/UIKit+Sugar"),
