@@ -4,19 +4,18 @@
 //
 
 import Foundation
-import Networking
 import SwiftDate
 
 public struct JSONCodingKeys: CodingKey {
     public var stringValue: String
 
-    init?(stringValue: String) {
+    public init?(stringValue: String) {
         self.stringValue = stringValue
     }
 
     public var intValue: Int?
 
-    init?(intValue: Int) {
+    public init?(intValue: Int) {
         self.init(stringValue: "\(intValue)")
         self.intValue = intValue
     }
@@ -29,30 +28,6 @@ public extension KeyedDecodingContainer {
 
     func decodeIfPresent<T: Decodable>(_ key: KeyedDecodingContainer.Key) throws -> T? {
         return try decodeIfPresent(T.self, forKey: key)
-    }
-
-    func decodeDate(_ key: KeyedDecodingContainer.Key, format: DateFormat) throws -> Date {
-        let dateString = try decode(String.self, forKey: key)
-        let dateFormatter = DateFormatter(format: format)
-        dateFormatter.timeZone = TimeZone(identifier: "UTC")
-        if let date = dateFormatter.date(from: dateString) {
-            return date
-        } else {
-            throw DecodingError.dataCorruptedError(forKey: key, in: self, debugDescription: "")
-        }
-    }
-
-    func decodeDateIfPresent(_ key: KeyedDecodingContainer.Key, format: DateFormat) throws -> Date? {
-        guard let dateString = try decodeIfPresent(String.self, forKey: key) else {
-            return nil
-        }
-        let dateFormatter = DateFormatter(format: format)
-        dateFormatter.timeZone = TimeZone(identifier: "UTC")
-        if let date = dateFormatter.date(from: dateString) {
-            return date
-        } else {
-            throw DecodingError.dataCorruptedError(forKey: key, in: self, debugDescription: "")
-        }
     }
 
     func decodeISO8601DateIfPresent(_ key: KeyedDecodingContainer.Key) throws -> Date? {
