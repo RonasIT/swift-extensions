@@ -4,6 +4,7 @@
 //
 
 import UIKit
+import RNSEdgeInsetsExtension
 
 public extension CGSize {
 
