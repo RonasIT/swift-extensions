@@ -4,7 +4,7 @@
 import PackageDescription
 
 let package = Package(
-    name: "SwiftSugar",
+    name: "SwiftExtensions",
     platforms: [
         .macOS(.v10_15),
         .iOS(.v13),
@@ -12,22 +12,40 @@ let package = Package(
         .watchOS(.v4)
     ],
     products: [
-        .library(name: "UIKit+Sugar", targets: ["UIKit+Sugar"]),
-        .library(name: "QuartzCore+Sugar", targets: ["QuartzCore+Sugar"]),
-        .library(name: "Foundation+Sugar", targets: ["Foundation+Sugar"]),
-        .library(name: "CoreGraphics+Sugar", targets: ["CoreGraphics+Sugar"]),
+        .library(name: "RNSArrayExtension", targets: ["RNSArrayExtension"]),
+        .library(name: "RNSCGAffineTransformScaleExtension", targets: ["RNSCGAffineTransformScaleExtension"]),
+        .library(name: "RNSKeyedDecodingContainerExtension", targets: ["RNSKeyedDecodingContainerExtension"]),
+        .library(name: "RNSCGSizeExtension", targets: ["RNSCGSizeExtension"]),
+        .library(name: "RNSCollectionViewExtension", targets: ["RNSCollectionViewExtension"]),
+        .library(name: "RNSDecodingErrorExtension", targets: ["RNSDecodingErrorExtension"]),
+        .library(name: "RNSEdgeInsetsExtension", targets: ["RNSEdgeInsetsExtension"]),
+        .library(name: "RNSEncodableExtension", targets: ["RNSEncodableExtension"]),
+        .library(name: "RNSErrorDecodingExtension", targets: ["RNSErrorDecodingExtension"]),
+        .library(name: "RNSQuartzCoreExtension", targets: ["RNSQuartzCoreExtension"]),
+        .library(name: "RNSStringValidation", targets: ["RNSStringValidation"]),
+        .library(name: "RNSViewControllerKeyboardNotificationObserver", targets: ["RNSViewControllerKeyboardNotificationObserver"]),
+        .library(name: "RNSViewExtension", targets: ["RNSViewExtension"]),
     ],
     dependencies: [
         .package(url: "https://github.com/malcommac/SwiftDate.git", .upToNextMajor(from: "6.3.1"))
     ],
     targets: [
-        .target(name: "UIKit+Sugar", path: "Sources/UIKit+Sugar"),
-        .target(name: "QuartzCore+Sugar", path: "Sources/QuartzCore+Sugar"),
+        .target(name: "RNSArrayExtension", path: "Sources/RNSArrayExtension"),
+        .target(name: "RNSCGAffineTransformScaleExtension", path: "Sources/RNSCGAffineTransformScaleExtension"),
         .target(
-            name: "Foundation+Sugar",
+            name: "RNSKeyedDecodingContainerExtension",
             dependencies: ["SwiftDate"],
-            path: "Sources/Foundation+Sugar"
+            path: "Sources/RNSKeyedDecodingContainerExtension"
         ),
-        .target(name: "CoreGraphics+Sugar", path: "Sources/CoreGraphics+Sugar"),
+        .target(name: "RNSCGSizeExtension", path: "Sources/RNSCGSizeExtension"),
+        .target(name: "RNSCollectionViewExtension", path: "Sources/RNSCollectionViewExtension"),
+        .target(name: "RNSDecodingErrorExtension", path: "Sources/RNSDecodingErrorExtension"),
+        .target(name: "RNSEdgeInsetsExtension", path: "Sources/RNSEdgeInsetsExtension"),
+        .target(name: "RNSEncodableExtension", path: "Sources/RNSEncodableExtension"),
+        .target(name: "RNSErrorDecodingExtension", path: "Sources/RNSErrorDecodingExtension"),
+        .target(name: "RNSQuartzCoreExtension", path: "Sources/RNSQuartzCoreExtension"),
+        .target(name: "RNSStringValidation", path: "Sources/RNSStringValidation"),
+        .target(name: "RNSViewControllerKeyboardNotificationObserver", path: "Sources/RNSViewControllerKeyboardNotificationObserver"),
+        .target(name: "RNSViewExtension", path: "Sources/RNSViewExtension"),
     ]
 )
