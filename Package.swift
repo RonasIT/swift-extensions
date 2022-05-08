@@ -37,7 +37,11 @@ let package = Package(
             dependencies: ["SwiftDate"],
             path: "Sources/RNSKeyedDecodingContainerExtension"
         ),
-        .target(name: "RNSCGSizeExtension", path: "Sources/RNSCGSizeExtension"),
+        .target(
+            name: "RNSCGSizeExtension",
+            dependencies: ["RNSEdgeInsetsExtension"],
+            path: "Sources/RNSCGSizeExtension"
+        ),
         .target(name: "RNSCollectionViewExtension", path: "Sources/RNSCollectionViewExtension"),
         .target(name: "RNSDecodingErrorExtension", path: "Sources/RNSDecodingErrorExtension"),
         .target(name: "RNSEdgeInsetsExtension", path: "Sources/RNSEdgeInsetsExtension"),
